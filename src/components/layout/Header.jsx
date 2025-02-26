@@ -1,0 +1,91 @@
+import React, { useState } from 'react';
+import { useScroll } from '../../hooks/useScroll';
+import { 
+  AcademicCapIcon,
+  Bars3Icon,
+  XMarkIcon,
+  UserIcon,
+  BellAlertIcon
+} from '@heroicons/react/24/outline';
+import { Button } from '../shared/Button';
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isScrolled = useScroll(10);
+
+  return (
+    <header className={`${
+      isScrolled ? 'py-2 shadow-lg' : 'py-4'
+    } bg-[rgb(36,67,128)] text-white sticky top-0 z-50 transition-all duration-300`}>
+      <div className="container mx-auto">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <div className="bg-white p-1.5 rounded-full">
+              <AcademicCapIcon className="h-8 w-8 text-[rgb(36,67,128)]" />
+            </div>
+            <div>
+              <h1 className="font-bold text-lg tracking-wide">CỔNG DỊCH VỤ CÔNG</h1>
+              <p className="text-xl opacity-90">ĐH KỸ THUẬT CÔNG NGHỆ CẦN THƠ</p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
+            <a href="#" className="nav-link">Trang chủ</a>
+            <a href="#" className="nav-link">Dịch vụ</a>
+            <a href="#" className="nav-link">Tin tức</a>
+            <a href="#" className="nav-link">Hướng dẫn</a>
+            <a href="#" className="nav-link">Liên hệ</a>
+          </nav>
+
+          {/* User Actions */}
+          <div className="hidden md:flex items-center gap-2">
+            
+            <Button variant="secondary" className=" rounded ">
+              <UserIcon className="h-5 w-5 mr-2" />
+              Đăng nhập
+            </Button>
+            <button className="p-2 hover:bg-white/10 rounded transition-colors relative">
+              <BellAlertIcon className="h-6 w-6"  />
+              <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2 hover:bg-white/10 rounded-lg"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 animate-fadeDown">
+            <nav className="flex flex-col space-y-4">
+              <a href="#" className="hover:text-yellow-400 transition-colors">Trang chủ</a>
+              <a href="#" className="hover:text-yellow-400 transition-colors">Dịch vụ</a>
+              <a href="#" className="hover:text-yellow-400 transition-colors">Tin tức</a>
+              <a href="#" className="hover:text-yellow-400 transition-colors">Hướng dẫn</a>
+              <a href="#" className="hover:text-yellow-400 transition-colors">Liên hệ</a>
+            </nav>
+            <div className="mt-4 flex flex-col space-y-4">
+              <Button variant="secondary" className="w-full justify-center">
+                <UserIcon className="h-5 w-5 mr-2" />
+                Đăng nhập
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
