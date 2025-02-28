@@ -4,11 +4,10 @@ import { Button } from '../shared/Button';
 
 const HeroSection = ({ searchQuery, setSearchQuery, handleSearch }) => {
   return (
-    <section className="relative min-h-[600px] bg-[rgb(36,67,128)] text-white overflow-hidden">
+    <section className="relative min-h-[600px] text-white overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgb(36,67,128)]/50 to-[rgb(36,67,128)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgb(36,67,128)]/80 to-[rgb(36,67,128)]"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 pt-12 pb-20">
@@ -38,7 +37,7 @@ const HeroSection = ({ searchQuery, setSearchQuery, handleSearch }) => {
               <Button 
                 type="submit" 
                 variant="secondary" 
-                className="!px-8 !py-4 shadow-lg hover:shadow-xl rounded"
+                className="!px-8 !py-4 shadow-lg hover:shadow-xl rounded-full!"
               >
                 Tìm kiếm
               </Button>

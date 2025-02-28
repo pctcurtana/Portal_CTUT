@@ -21,7 +21,7 @@ const ServicesSection = () => {
       : services.filter(service => service.category === activeTab);
 
   return (
-    <section className="py-12 px-0">
+    <section className="pb-12 px-0">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
         <div>
           <h2 className="text-3xl font-bold text-[rgb(36,67,128)] mb-4 relative">

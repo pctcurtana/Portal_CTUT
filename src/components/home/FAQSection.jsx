@@ -29,7 +29,7 @@ const FAQSection = () => {
               </p>
               <a 
                 href="#" 
-                className="inline-flex items-center bg-white text-[rgb(36,67,128)] font-medium px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors"
+                className="inline-flex items-center text-[rgb(36,67,128)] bg-white font-medium px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors"
               >
                 Xem tất cả FAQ
                 <ArrowRightIcon className="h-4 w-4 ml-1" />

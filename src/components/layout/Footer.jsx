@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}
           <div>
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-3">
               <div className="bg-white p-1.5 rounded-full">
                 <AcademicCapIcon className="h-8 w-8 text-[rgb(36,67,128)]" />
               </div>
@@ -24,10 +24,15 @@ const Footer = () => {
                 <p className="text-sm opacity-90">ĐH KỸ THUẬT CÔNG NGHỆ CẦN THƠ</p>
               </div>
             </div>
-            <p className="text-gray-300 mb-6">
-              Cổng dịch vụ công trực tuyến của Trường Đại học Kỹ thuật Công nghệ Cần Thơ, 
-              cung cấp các dịch vụ hành chính công phục vụ sinh viên, giảng viên và cán bộ.
-            </p>
+            
+          </div>
+          <div>
+            <div className='flex space-x-3 mb-6'>
+              <p className="text-gray-300 mb-6">
+                Cổng dịch vụ công trực tuyến của Trường Đại học Kỹ thuật Công nghệ Cần Thơ, 
+                cung cấp các dịch vụ hành chính công phục vụ sinh viên, giảng viên và cán bộ.
+              </p>            
+            </div>  
             <div className="flex space-x-4">
               {/* Social Media Icons */}
               <SocialIcon href="#" type="facebook" />
@@ -43,18 +48,6 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {footerLinks.quickLinks.map((link, index) => (
-                <FooterLink key={index} {...link} />
-              ))}
-            </ul>
-          </div>
-
-          {/* Support Links */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6 relative inline-block">
-              Hỗ trợ
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link, index) => (
                 <FooterLink key={index} {...link} />
               ))}
             </ul>
@@ -83,7 +76,7 @@ const Footer = () => {
         </div>
         
         {/* Copyright */}
-        <div className="pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+        <div className="py-4 border-t border-gray-700 text-center text-gray-400 text-sm">
           <p>© 2025 Cổng Dịch vụ Công - Trường Đại học Kỹ thuật Công nghệ Cần Thơ. 
              Tất cả các quyền được bảo lưu.</p>
         </div>

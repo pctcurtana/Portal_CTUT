@@ -8,6 +8,8 @@ import {
   BellAlertIcon
 } from '@heroicons/react/24/outline';
 import { Button } from '../shared/Button';
+import logo from '../../assets/logo.jpg';
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,29 +17,29 @@ const Header = () => {
 
   return (
     <header className={`${
-      isScrolled ? 'py-2 shadow-lg' : 'py-4'
+      isScrolled ? 'py-3 shadow-lg' : ' py-5'
     } bg-[rgb(36,67,128)] text-white sticky top-0 z-50 transition-all duration-300`}>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-10 ">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="bg-white p-1.5 rounded-full">
-              <AcademicCapIcon className="h-8 w-8 text-[rgb(36,67,128)]" />
-            </div>
+        
+              <img src={logo}alt="" className=' h-15 w-15 rounded-full sm:h-20 sm:w-20' />
+            
             <div>
-              <h1 className="font-bold text-lg tracking-wide">CỔNG DỊCH VỤ CÔNG</h1>
-              <p className="text-xl opacity-90">ĐH KỸ THUẬT CÔNG NGHỆ CẦN THƠ</p>
+              <p className="font-bold text-2xl md:text-3xl lh-1 tracking-wide">CỔNG DỊCH VỤ CÔNG</p>
+              <p className=" text-md md:text-xl">ĐH KỸ THUẬT CÔNG NGHỆ CẦN THƠ</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          {/* <nav className="hidden md:flex items-center space-x-6">
             <a href="#" className="nav-link">Trang chủ</a>
             <a href="#" className="nav-link">Dịch vụ</a>
             <a href="#" className="nav-link">Tin tức</a>
             <a href="#" className="nav-link">Hướng dẫn</a>
             <a href="#" className="nav-link">Liên hệ</a>
-          </nav>
+          </nav> */}
 
           {/* User Actions */}
           <div className="hidden md:flex items-center gap-2">

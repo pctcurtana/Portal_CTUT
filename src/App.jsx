@@ -23,11 +23,11 @@ function App() {
         setSearchQuery={setSearchQuery}
         handleSearch={handleSearch}
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-12 py-12">
         <ServicesSection />
-        <StatisticsSection />
+        {/* <StatisticsSection /> */}
         <FAQSection />
-        <CTASection />
+        {/* <CTASection /> */}
       </div>
     </MainLayout>
   );
