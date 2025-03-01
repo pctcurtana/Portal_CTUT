@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useScroll } from '../../hooks/useScroll';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { 
-  AcademicCapIcon,
   Bars3Icon,
   XMarkIcon,
   UserIcon,
@@ -19,7 +20,7 @@ const Header = () => {
     <header className={`${
       isScrolled ? 'py-3 shadow-lg' : ' py-5'
     } bg-[rgb(36,67,128)] text-white sticky top-0 z-50 transition-all duration-300`}>
-      <div className="container mx-auto px-10 ">
+      <div className="container mx-auto sm:px-10 px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
@@ -42,20 +43,22 @@ const Header = () => {
           </nav> */}
 
           {/* User Actions */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="flex items-center  ">
             
-            <Button variant="secondary" className=" rounded ">
-              <UserIcon className="h-5 w-5 mr-2" />
-              Đăng nhập
-            </Button>
-            <button className="p-2 hover:bg-white/10 rounded transition-colors relative">
-              <BellAlertIcon className="h-6 w-6"  />
+              <Link to ="/login">
+                <Button variant="secondary" className=" scale-80 text-sm md:scale-100 md:px-6 md:py-3 md:text-base ">
+                  <UserIcon className="h-5 w-5 mr-2" />
+                  Đăng nhập
+                </Button>
+              </Link>
+            <button className="md:p-2 p-1.5  hover:bg-white/10 rounded transition-colors relative">
+              <BellAlertIcon className="md:h-6 md:w-6 h-5 w-5 "  />
               <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          {/* <button 
             className="md:hidden p-2 hover:bg-white/10 rounded-lg"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -64,11 +67,11 @@ const Header = () => {
             ) : (
               <Bars3Icon className="h-6 w-6" />
             )}
-          </button>
+          </button> */}
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
+        {/* {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-fadeDown">
             <nav className="flex flex-col space-y-4">
               <a href="#" className="hover:text-yellow-400 transition-colors">Trang chủ</a>
@@ -78,13 +81,15 @@ const Header = () => {
               <a href="#" className="hover:text-yellow-400 transition-colors">Liên hệ</a>
             </nav>
             <div className="mt-4 flex flex-col space-y-4">
-              <Button variant="secondary" className="w-full justify-center">
-                <UserIcon className="h-5 w-5 mr-2" />
-                Đăng nhập
-              </Button>
+              <Link to ="/login">
+                <Button variant="secondary" className="w-full justify-center">
+                  <UserIcon className="h-5 w-5 mr-2" />
+                  Đăng nhập
+                </Button>
+              </Link>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </header>
   );
