@@ -63,10 +63,10 @@ export default function LoginPage() {
               </button>
           </Link>
             <div className='flex justify-center mt-4'>
-                <p className='font-medium mr-2'>Chưa có tài khoản ? </p>
-                <a href="#" className="text-[#244380] hover:text-blue-500">
+                <p className='font-medium mr-2'>Chưa có tài khoản? </p>
+                <Link to ="/register" className="text-[#244380] hover:text-blue-500">
                   Đăng ký ngay
-                </a>
+                </Link>
             </div>
           
           

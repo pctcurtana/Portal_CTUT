@@ -5,7 +5,10 @@ import HeroSection from './components/home/HeroSection';
 import ServicesSection from './components/home/ServicesSection';
 import FAQSection from './components/home/FAQSection';
 import Login from './components/auth/Login';
-import Header from './components/layout/Header';
+import Register from './components/auth/Register';
+import ServiceDetail from './components/shared/ServiceDetail';
+import ServiceUse from './components/shared/ServiceUse';
+import AllServices from './components/home/AllServices';
 
 function App() {
   return (
@@ -22,8 +25,31 @@ function App() {
           </MainLayout>
         } />
         
+        {/* Trang tất cả dịch vụ */}
+        <Route path="/services" element={
+          <MainLayout>
+            <AllServices />
+          </MainLayout>
+        } />
+        
+        {/* Trang chi tiết dịch vụ */}
+        <Route path="/service/:id" element={
+          <MainLayout>
+            <ServiceDetail />
+          </MainLayout>
+        } />
+        
+        {/* Trang sử dụng dịch vụ */}
+        <Route path="/service/:id/use" element={
+          <MainLayout>
+            <ServiceUse />
+          </MainLayout>
+        } />
+        
         {/* Trang đăng nhập */}
         <Route path="/login" element={<Login/>} />
+        {/* Trang đăng ký */}
+        <Route path="/register" element={<Register/>} />
       </Routes>
     </Router>
   );

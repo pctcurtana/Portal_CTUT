@@ -9,17 +9,22 @@
       transform: translateY(0);
     }
   }
-  /* a {
-    all:unset;
-  } */
 
-  /* .nav-link {
-    @apply text-white transition-colors;
-  } */
-  
-  /* .nav-link:hover {
-    @apply text-yellow-400 tracking-widest group-hover:tracking-wider transition-all duration-500;
-  } */
   .animate-fadeDown {
     animation: fadeDown 0.7s ease-in-out forwards;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
   }
