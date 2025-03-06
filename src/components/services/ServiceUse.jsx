@@ -14,7 +14,7 @@ import {
   CheckIcon,
   XMarkIcon
 } from '@heroicons/react/24/outline';
-import { Button } from './Button';
+import { Button } from '../shared/Button';
 
 const ServiceUse = () => {
   const { id } = useParams();

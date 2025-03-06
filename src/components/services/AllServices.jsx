@@ -25,6 +25,7 @@ const AllServices = () => {
     { id: 'facility', label: 'Cơ sở vật chất' },
     { id: 'popular', label: 'Phổ biến' }
   ];
+  const toatalServices = 8;
 
   const filterServices = () => {
     let result = [...services];
@@ -182,9 +183,8 @@ const AllServices = () => {
               )}
             </div>
           )}
-
           {/* Thông báo khi có tìm kiếm */}
-          {searchTerm && (
+          {searchTerm.trim() && (
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
               <p className="text-blue-700">
                 Kết quả tìm kiếm cho <span className="font-medium">"{searchTerm}"</span>: 
@@ -194,35 +194,22 @@ const AllServices = () => {
               </p>
             </div>
           )}
-
           {/* Results info */}
           <div className="flex justify-between items-center mb-6">
             <p className="text-gray-600">
-              Hiển thị <span className="font-medium">{filteredServices.length}</span> dịch vụ
+              Hiển thị <span className="font-medium">{filteredServices.length}</span> trong tổng số 
+              <span className="font-medium"> {toatalServices}</span> dịch vụ
             </p>
           </div>
-
           {/* Services grid */}
-          {filteredServices.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredServices.map((service, index) => (
                 <ServiceCard 
-                  key={service.id || index} 
+                  key={index} 
                   service={service}
                 />
               ))}
             </div>
-          ) : (
-            <div className="bg-white rounded-xl shadow-md p-8 text-center">
-              <p className="text-gray-600 mb-4">Không tìm thấy dịch vụ nào phù hợp với tiêu chí tìm kiếm.</p>
-              <button
-                onClick={clearAllFilters}
-                className="text-[rgb(36,67,128)] hover:underline font-medium"
-              >
-                Xóa bộ lọc
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>

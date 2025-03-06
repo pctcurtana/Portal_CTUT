@@ -6,9 +6,9 @@ import ServicesSection from './components/home/ServicesSection';
 import FAQSection from './components/home/FAQSection';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import ServiceDetail from './components/shared/ServiceDetail';
-import ServiceUse from './components/shared/ServiceUse';
-import AllServices from './components/home/AllServices';
+import ServiceDetail from './components/services/ServiceDetail';
+import ServiceUse from './components/services/ServiceUse';
+import AllServices from './components/services/AllServices';
 
 function App() {
   return (

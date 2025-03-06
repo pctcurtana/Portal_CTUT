@@ -7,26 +7,25 @@ const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-  // Hàm xử lý tìm kiếm đơn giản
+
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/services?search=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
+  const stats = [
+    { number: '50+', label: 'Dịch vụ trực tuyến', description: 'Đa dạng dịch vụ' },
+    { number: '24/7', label: 'Hỗ trợ liên tục', description: 'Luôn sẵn sàng phục vụ' },
+    { number: '15k+', label: 'Người dùng', description: 'Tin tưởng sử dụng' },
+    { number: '100%', label: 'Bảo mật', description: 'An toàn thông tin' }
+  ];
 
   return (
     <section className="relative min-h-[600px] text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
-      <div className="absolute inset-0 bg-[rgb(36,67,128)]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgb(36,67,128)] via-blue-500 to-blue-300 opacity-60"></div>
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-blue-300 opacity-20 rounded-full blur-[150px]"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-blue-500 opacity-30 rounded-full blur-[120px]"></div>
-        <div className="absolute top-10 right-10 w-[200px] h-[200px] bg-yellow-400 opacity-30 rounded-full blur-[100px]"></div>
+      <div className="absolute inset-0 bg-[#244380]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#244380] via-[#0f4583] to-blue-500 opacity-60"></div>
       </div>
-      </div>
-
       <div className="container relative z-10 mx-auto px-4 pt-12 pb-20">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -38,7 +37,6 @@ const HeroSection = () => {
             Giải quyết thủ tục hành chính nhanh chóng, thuận tiện và hiệu quả
           </p>
 
-          {/* Search Form - Đơn giản hóa */}
           <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-16">
             <div className="flex gap-4">
               <div className="flex-1 relative">
@@ -64,12 +62,7 @@ const HeroSection = () => {
 
           {/* Quick Stats */}
           <div className="grid grid-cols-2 py-4 md:grid-cols-4 gap-8">
-            {[
-              { number: '50+', label: 'Dịch vụ trực tuyến', description: 'Đa dạng dịch vụ' },
-              { number: '24/7', label: 'Hỗ trợ liên tục', description: 'Luôn sẵn sàng phục vụ' },
-              { number: '15k+', label: 'Người dùng', description: 'Tin tưởng sử dụng' },
-              { number: '100%', label: 'Bảo mật', description: 'An toàn thông tin' }
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <div 
                 key={index} 
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transform hover:-translate-y-1 transition-all duration-300"

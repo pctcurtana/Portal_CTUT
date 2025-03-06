@@ -25,12 +25,12 @@ const ServicesSection = () => {
 
       {/* Grid hiển thị dịch vụ phổ biến */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {popularServices.map((service, index) => (
+        {popularServices.map((service) => (
           <ServiceCard 
-            key={service.id || index} 
+            key={service.id} 
             service={service}
             className="animate-fadeIn"
-            style={{ animationDelay: `${index * 0.1}s` }}
+            style={{ animationDelay: `${service.id * 0.1}s` }}
           />
         ))}
       </div>
