@@ -16,16 +16,13 @@ const Footer = () => {
           {/* Brand Section */}
           <div>
             <div className="flex items-center space-x-3">          
-              <img src={Logo} alt="" className='rounded-full h-10 w-10 sm:h-15 sm:w-15' />             
+              <img src={Logo} alt="" className='rounded-full h-13 w-13 sm:h-15 sm:w-15' />             
               <div className='inline'>
                 <h3 className="font-bold text-xl sm:text-2xl tracking-wide">CỔNG DỊCH VỤ CÔNG</h3>
                 <p className="opacity-90 text-sm sm:text-md text-gray-200 mt-1">ĐH KỸ THUẬT CÔNG NGHỆ CẦN THƠ</p>
               </div>
             </div>          
-            <p className="text-gray-300 mt-4">
-              Cổng dịch vụ công trực tuyến của Trường Đại học Kỹ thuật Công nghệ Cần Thơ, 
-              cung cấp các dịch vụ hành chính công phục vụ sinh viên, giảng viên và cán bộ.
-            </p>
+            
           </div>
 
           {/* Quick Links */}

@@ -57,9 +57,7 @@ const AllServices = () => {
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
-    if (window.innerWidth < 768) {
-      setShowFilters(false);
-    }
+    
   };
 
   const clearSearch = () => {
@@ -72,7 +70,7 @@ const AllServices = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-8 pt-2 pb-8">
       {/* Breadcrumb */}
       <div className="flex items-center text-sm text-gray-500 mb-6">
         <Link to="/" className="hover:text-[rgb(36,67,128)]">Trang chủ</Link>
@@ -82,12 +80,14 @@ const AllServices = () => {
 
       <h1 className="text-3xl font-bold text-[rgb(36,67,128)] mb-8 relative">
         Tất cả dịch vụ
-        <span className="absolute left-0 -bottom-2 w-20 h-1 bg-yellow-400"></span>
+        <span className="absolute left-0 -bottom-2 w-50 h-1 bg-yellow-400"></span>
       </h1>
 
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar filters - Desktop */}
-        <div className="hidden md:block w-64 flex-shrink-0">
+        {/* <div className="hidden md:block w-64 flex-shrink-0"> */}
+        <div className="hidden w-64 flex-shrink-0">
+
           <div className="bg-white rounded-xl shadow-md p-6 sticky top-24">
             <h2 className="font-semibold text-lg text-[rgb(36,67,128)] mb-4">Danh mục</h2>
             <ul className="space-y-2">
@@ -122,7 +122,7 @@ const AllServices = () => {
         <div className="flex-1">
           {/* Search and filter bar */}
           <div className="bg-white rounded-xl shadow-md p-4 mb-6">
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col flex-row gap-4">
               <div className="relative flex-1">
                 <input
                   type="text"
@@ -142,10 +142,15 @@ const AllServices = () => {
                   </button>
                 )}
               </div>
-              <button
+              {/* <button
                 type="button"
                 onClick={() => setShowFilters(!showFilters)}
                 className="md:hidden flex items-center justify-center px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200"
+              ></button> */}
+              <button
+                type="button"
+                onClick={() => setShowFilters(!showFilters)}
+                className="flex items-center justify-center px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200"
               >
                 <AdjustmentsHorizontalIcon className="h-5 w-5 mr-2" />
                 Bộ lọc
@@ -155,13 +160,15 @@ const AllServices = () => {
 
           {/* Mobile filters */}
           {showFilters && (
-            <div className="md:hidden bg-white rounded-xl shadow-md p-4 mb-6">
+            // <div className="md:hidden bg-white rounded-xl shadow-md p-4 mb-6">
+
+            <div className="bg-white rounded-xl shadow-md p-4 mb-6">
               <h2 className="font-semibold text-lg text-[rgb(36,67,128)] mb-4">Danh mục</h2>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-4">
                 {categories.map(category => (
                   <button
                     key={category.id}
-                    onClick={() => handleCategoryChange(category.id)}
+                    onClick={() => handleCategoryChange(category.id)} 
                     className={`px-3 py-2 rounded-lg text-sm transition-colors ${
                       activeCategory === category.id
                         ? 'bg-[rgb(36,67,128)] text-white'

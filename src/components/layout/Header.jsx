@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { 
   UserIcon,
   BellAlertIcon,
-  XMarkIcon
+  XMarkIcon,
+  ClockIcon,
+  ChevronDownIcon,
+  ArrowRightOnRectangleIcon
 } from '@heroicons/react/24/outline';
 import { Button } from '../shared/Button';
 import logo from '../../assets/logo.jpg';
@@ -52,6 +55,22 @@ const Header = () => {
   const [notifications, setNotifications] = useState(sampleNotifications);
   const notificationRef = useRef(null);
   const isScrolled = useScroll(10);
+
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const userMenuRef = useRef(null);
+  const isLoggedIn = true;
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setShowUserMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Xử lý click bên ngoài để đóng notification
   useEffect(() => {
@@ -108,31 +127,70 @@ const Header = () => {
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
   return (
-    <header className={`${
-      isScrolled ? 'py-3 shadow-lg' : 'py-5'
-    } bg-[rgb(36,67,128)] text-white sticky top-0 z-50 transition-all duration-300`}>
-      <div className="container mx-auto sm:px-10 px-4">
-        <div className="flex items-center justify-between">
+    <header className={`${isScrolled ? 'py-3 shadow-xl' : 'shadow-md py-5'} bg-[rgb(36,67,128)] text-white sticky top-0 z-50`}>
+    <div className="container mx-auto sm:px-10 px-4">
+      <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <img src={logo} alt="" className='h-15 w-15 rounded-full sm:h-20 sm:w-20' />
+          <div className="flex items-center space-x-3 cursor-pointer select-none">
+            <img src={logo} alt="" className='h-17 w-17 rounded-full sm:h-20 sm:w-20' />
             <div>
-              <p className="font-bold text-2xl md:text-3xl lh-1 tracking-wide">CỔNG DỊCH VỤ CÔNG</p>
-              <p className="text-md md:text-xl">ĐH KỸ THUẬT CÔNG NGHỆ CẦN THƠ</p>
+              <p className="font-bold hidden md:block md:text-3xl  tracking-wide">CỔNG DỊCH VỤ CÔNG</p>
+              <p className="hidden md:block md:text-md">TRƯỜNG ĐẠI HỌC KỸ THUẬT CÔNG NGHỆ CẦN THƠ</p>
             </div>
           </div>
 
           {/* User Actions */}
           <div className="flex items-center space-x-4">
-            <Link to="/login">
-              <Button variant="secondary" className="scale-80 text-sm md:scale-100 md:px-6 md:py-3 md:text-base">
-                <UserIcon className="h-5 w-5 mr-2" />
-                Đăng nhập
-              </Button>
-            </Link>
+            {!isLoggedIn ? (
+              <Link to="/login">
+                <Button variant="login" className="text-sm px-3 py-2 md:px-5 md:py-3 md:text-base">
+                  <UserIcon className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2" />
+                  Đăng nhập
+                </Button>
+              </Link>
+            ) : (
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  className="flex items-center space-x-2 hover:bg-white/10 rounded-lg px-3 py-2 transition-colors"
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                >
+                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                    <UserIcon className="h-5 w-5" />
+                  </div>
+                  <span className="hidden md:block">Nguyễn Văn A</span>
+                  <ChevronDownIcon className="h-4 w-4" />
+                </button>
+
+                {/* User Dropdown Menu */}
+                {showUserMenu && (
+                  <div className="absolute right-0 mt-2 w-60 bg-white rounded-lg shadow-lg overflow-hidden text-gray-800">
+                    <div className="p-4 border-b border-gray-100">
+                      <p className="font-medium text-gray-900">Nguyễn Văn A</p>
+                      <p className="text-sm text-gray-500">student@ctut.edu.vn</p>
+                    </div>
+                    
+                    <Link 
+                      to="/service-history" 
+                      onClick={() => setShowUserMenu(false)}
+                      className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <ClockIcon className="h-5 w-5 text-gray-500" />
+                      <span>Lịch sử dịch vụ</span>
+                    </Link>
+
+                    <button 
+                      className="w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors text-red-600"
+                    >
+                      <ArrowRightOnRectangleIcon className="h-5 w-5" />
+                      <span>Đăng xuất</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
             
             {/* Notification Bell */}
-            <div className="relative" ref={notificationRef}>
+           {isLoggedIn && <div className="relative" ref={notificationRef}>
               <button 
                 className="md:p-2 p-1.5 hover:bg-white/10 rounded transition-colors relative"
                 onClick={() => setShowNotifications(!showNotifications)}
@@ -259,7 +317,7 @@ const Header = () => {
                   )}
                 </div>
               )} 
-            </div>
+            </div>}
           </div>
         </div>
       </div>

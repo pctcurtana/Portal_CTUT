@@ -7,13 +7,13 @@ const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/services?search=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
+
   const stats = [
     { number: '50+', label: 'Dịch vụ trực tuyến', description: 'Đa dạng dịch vụ' },
     { number: '24/7', label: 'Hỗ trợ liên tục', description: 'Luôn sẵn sàng phục vụ' },
@@ -22,13 +22,16 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-[600px] text-white overflow-hidden">
+    <section className="relative min-h-[600px] text-white">
+      {/* Background */}
       <div className="absolute inset-0 bg-[#244380]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#244380] via-[#0f4583] to-blue-500 opacity-60"></div>
       </div>
-      <div className="container relative z-10 mx-auto px-4 pt-12 pb-20">
+
+      {/* Content */}
+      <div className="container relative z-10 mx-auto px-4 pt-4 pb-32">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl select-none cursor-pointer md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Cổng Dịch vụ Công
             <span className="block text-yellow-400">Trực tuyến</span>
           </h1>
@@ -45,23 +48,22 @@ const HeroSection = () => {
                   placeholder="Tìm kiếm dịch vụ..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-6 py-4 rounded-full text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-xl"
+                  className="w-full px-4 py-2 rounded-full bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 md:px-6 md:py-3 shadow-xl"
                 />
-                
               </div>
               <Button 
                 type="submit" 
-                variant="secondary" 
-                className="!px-6 !py-4 shadow-lg hover:shadow-xl rounded-full!"
+                variant="login"  
+                className="shadow-lg px-3 text-sm py-2 md:text-base md:px-5 md:py-3"
               >
-                <MagnifyingGlassIcon className="h-5 w-5 mr-2" />
+                <MagnifyingGlassIcon className="h-4 w-4 mr-1 md:h-5 md:w-5 md:mr-2" />
                 Tìm kiếm
               </Button>
             </div>
           </form>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 py-4 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 ">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
@@ -77,11 +79,21 @@ const HeroSection = () => {
       </div>
 
       {/* Wave Shape Divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 30L48 35C96 40 192 50 288 55C384 60 480 60 576 55C672 50 768 40 864 45C960 50 1056 70 1152 75C1248 80 1344 70 1392 65L1440 60V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V30Z" fill="#f9fafb" />
+      {/* <div className="w-full overflow-hidden leading-none">
+        <svg 
+        
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className=" block w-full h-[60px]"
+          style={{ transform: 'rotate(180deg)' } }
+        >
+          <path 
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" 
+            className="fill-[#f9fafb]"
+          ></path>
         </svg>
-      </div>
+      </div> */}
     </section>
   );
 };

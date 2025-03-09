@@ -14,22 +14,15 @@ const ServiceDetail = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl">
+    <div className="container mx-auto px-4 md:px-8 pt-2 pb-8">
       {/* Breadcrumb */}
       <div className="flex items-center text-sm text-gray-500 mb-6">
         <Link to="/" className="hover:text-[rgb(36,67,128)]">Trang chủ</Link>
         <span className="mx-2">/</span>
-        <Link to="/#services" className="hover:text-[rgb(36,67,128)]">Dịch vụ</Link>
+        <Link to="/services" className="hover:text-[rgb(36,67,128)]">Tất cả dịch vụ</Link>
         <span className="mx-2">/</span>
         <span className="text-[rgb(36,67,128)] font-medium">{service.title}</span>
       </div>
-
-      {/* Back button */}
-      <Link to="/" className="inline-flex items-center text-[rgb(36,67,128)] hover:underline mb-6">
-        <ArrowLeftIcon className="h-4 w-4 mr-1" />
-        Quay lại danh sách dịch vụ
-      </Link>
-
       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
         {/* Header */}
         <div className="bg-[rgb(36,67,128)] p-8 text-white">

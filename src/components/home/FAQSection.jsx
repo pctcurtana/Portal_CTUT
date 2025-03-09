@@ -1,56 +1,87 @@
 import React from 'react';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { QuestionMarkCircleIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 const FAQSection = () => {
   const faqs = [
     { 
-      question: 'Làm thế nào để đăng ký tài khoản dịch vụ công?', 
-      answer: 'Sinh viên có thể đăng ký tài khoản bằng cách sử dụng email trường cấp và làm theo hướng dẫn trên trang đăng ký.' 
+      id: 1,
+      question: 'Làm thế nào để đăng ký tài khoản dịch vụ công?',
+      answer: 'Để đăng ký tài khoản dịch vụ công, bạn cần thực hiện các bước sau:\n1. Truy cập vào trang đăng ký\n2. Sử dụng email trường cấp (@student.ctut.edu.vn)\n3. Điền đầy đủ thông tin cá nhân\n4. Xác thực email và hoàn tất đăng ký',
+      category: 'Tài khoản'
     },
     { 
-      question: 'Thời gian xử lý hồ sơ trực tuyến là bao lâu?', 
-      answer: 'Thời gian xử lý hồ sơ trực tuyến thông thường từ 1-3 ngày làm việc tùy theo loại dịch vụ.' 
+      id: 2,
+      question: 'Thời gian xử lý hồ sơ trực tuyến là bao lâu?',
+      answer: 'Thời gian xử lý hồ sơ phụ thuộc vào loại dịch vụ:\n- Xác nhận sinh viên: 1-2 ngày\n- Bảng điểm: 2-3 ngày\n- Giấy giới thiệu: 1 ngày\n- Các loại đơn khác: 3-5 ngày làm việc',
+      category: 'Thời gian'
     },
-    { 
-      question: 'Tôi có thể thanh toán học phí bằng những hình thức nào?', 
-      answer: 'Trường hỗ trợ thanh toán học phí qua chuyển khoản ngân hàng, ví điện tử và các cổng thanh toán trực tuyến.' 
+    {
+      id: 3,
+      question: 'Làm sao để theo dõi tiến độ xử lý hồ sơ?',
+      answer: 'Bạn có thể theo dõi tiến độ xử lý hồ sơ bằng các cách:\n1. Đăng nhập vào tài khoản và vào mục "Lịch sử dịch vụ"\n2. Kiểm tra email thông báo từ hệ thống\n3. Nhập mã hồ sơ vào công cụ tra cứu\n4. Liên hệ hotline hỗ trợ: 1900.xxxx',
+      category: 'Theo dõi'
+    },
+    {
+      id: 4,
+      question: 'Quy trình xử lý đơn từ diễn ra như thế nào?',
+      answer: 'Quy trình xử lý đơn gồm các bước:\n1. Tiếp nhận hồ sơ trực tuyến\n2. Chuyển đến bộ phận xử lý\n3. Phê duyệt\n4. Thông báo kết quả.',
+      category: 'Quy trình'
     }
+   
   ];
 
   return (
-    <section className="">
-      <div className="container mx-auto px-0">
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="flex flex-col md:flex-row">
-            <div className="bg-[rgb(36,67,128)] text-white p-8 md:w-1/3">
-              <h2 className="text-2xl font-bold mb-4">Câu hỏi thường gặp</h2>
-              <p className="opacity-80 mb-6">
-                Những câu hỏi phổ biến về dịch vụ công trực tuyến của trường
-              </p>
-              <a 
-                href="#" 
-                className="inline-flex items-center text-[rgb(36,67,128)] bg-white font-medium px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors"
-              >
-                Xem tất cả FAQ
-                <ArrowRightIcon className="h-4 w-4 ml-1" />
-              </a>
-            </div>
+    <section className="py-12">
+      <div className="container mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12 md:text-left">
+          <h2 className="text-3xl font-bold text-[rgb(36,67,128)]">
+            Câu hỏi thường gặp
+          </h2>
+          <div className="w-71 h-1 bg-yellow-400 mx-auto md:mx-0 mt-1"></div>
+        </div>
 
-            <div className="p-8 md:w-2/3">
-              <div className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4">
-                    <h3 className="font-semibold text-[rgb(36,67,128)] mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="text-gray-600">
-                      {faq.answer}
-                    </p>
+        {/* FAQ Grid */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {faqs.map((faq) => (
+            <div 
+              key={faq.id}
+              className="bg-[rgb(36,67,128)]/10 rounded-xl p-3 md:p-6 border border-gray-100"
+            >
+              {/* Question Header */}
+              <div className="flex items-start gap-2 mb-4">
+                <div className="flex-shrink-0 w-10 h-10 bg-[rgb(36,67,128)] rounded-full flex items-center justify-center mt-7">
+                  <QuestionMarkCircleIcon className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <span className="inline-block px-3 py-1 bg-[rgb(36,67,128)] text-white text-xs font-medium rounded-full mb-2">
+                    {faq.category}
+                  </span>
+                  <h3 className="font-semibold text-gray-1000 mb-3">
+                    {faq.question}
+                  </h3>
+                  <div className="text-gray-600 space-y-2">
+                    {faq.answer.split('\n').map((line, i) => (
+                      <p key={`${faq.id}-line-${i}`} className="text-sm">
+                        {line}
+                      </p>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Support Section */}
+        <div className="text-center mt-10">
+          <a 
+            href="/faq" 
+            className="inline-flex items-center px-4 py-3 bg-[rgb(36,67,128)] text-white font-medium rounded-lg hover:bg-[rgb(26,57,118)] transition-colors"
+          >
+            Xem tất cả câu hỏi
+            <ArrowRightIcon className="h-5 w-5 ml-2" />
+          </a>
         </div>
       </div>
     </section>

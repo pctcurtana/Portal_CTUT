@@ -9,42 +9,47 @@ import Register from './components/auth/Register';
 import ServiceDetail from './components/services/ServiceDetail';
 import ServiceUse from './components/services/ServiceUse';
 import AllServices from './components/services/AllServices';
+import ServiceHistory from './components/services/ServiceHistory';
+import NewsSection from './components/home/NewsSection';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Trang chủ */}
         <Route path="/" element={
           <MainLayout>
             <HeroSection />
-            <div className="container mx-auto px-12 py-12">
+            <div className="container mx-auto px-4 py-10">
               <ServicesSection />
+              <NewsSection />
               <FAQSection />
             </div>
           </MainLayout>
         } />
         
-        {/* Trang tất cả dịch vụ */}
         <Route path="/services" element={
           <MainLayout>
             <AllServices />
           </MainLayout>
         } />
         
-        {/* Trang chi tiết dịch vụ */}
         <Route path="/service/:id" element={
           <MainLayout>
             <ServiceDetail />
           </MainLayout>
         } />
         
-        {/* Trang sử dụng dịch vụ */}
         <Route path="/service/:id/use" element={
           <MainLayout>
             <ServiceUse />
           </MainLayout>
         } />
+        <Route path="/service-history" element={
+          <MainLayout>
+            <ServiceHistory />
+          </MainLayout>
+        } />
+        
         
         {/* Trang đăng nhập */}
         <Route path="/login" element={<Login/>} />
