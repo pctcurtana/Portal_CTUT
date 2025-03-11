@@ -5,12 +5,7 @@ import {
   XCircleIcon, 
   ClockIcon,
   DocumentTextIcon,
-  MagnifyingGlassIcon,
-  ChevronRightIcon,
-  UserIcon,
-  ArrowUpTrayIcon,
-  CheckIcon,
-  EnvelopeIcon
+  MagnifyingGlassIcon
 } from '@heroicons/react/24/outline';
 
 const ServiceHistory = () => {
@@ -170,27 +165,6 @@ const ServiceHistory = () => {
     }
   ];
 
-  const getStepIcon = (step) => {
-    switch (step) {
-      case 1:
-        return <UserIcon className="h-5 w-5" />;
-      case 2:
-        return <DocumentTextIcon className="h-5 w-5" />;
-      case 3:
-        return <ArrowUpTrayIcon className="h-5 w-5" />;
-      case 4:
-        return <CheckIcon className="h-5 w-5" />;
-      case 5:
-        return <ClockIcon className="h-5 w-5" />;
-      case 6:
-        return <DocumentTextIcon className="h-5 w-5" />;
-      case 7:
-        return <EnvelopeIcon className="h-5 w-5" />;
-      default:
-        return null;
-    }
-  };
-
   const getStatusColor = (status) => {
     switch (status) {
       case 'completed':
@@ -227,7 +201,7 @@ const ServiceHistory = () => {
   );
 
   return (
-    <div className="pt-2 pb-8 px-4 md:px-8">
+    <div className="pt-2 pb-8 px-4 bg-gray-50 md:px-4">
       <div className="mx-auto">
         {/* Header */}
         <div className="flex items-center text-sm text-gray-500 mb-6">
@@ -259,41 +233,45 @@ const ServiceHistory = () => {
         {/* History Cards */}
         <div className="space-y-6">
           {filteredHistory.map((item) => (
-            <div key={item.id} className="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div key={item.id} className="bg-[rgb(36,67,128)]/10 rounded-xl shadow-sm overflow-hidden">
               {/* Service Info */}
               <div className="p-6 border-b border-gray-100">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-start space-x-4">
+                <div>
+                  {/* Header với icon và tiêu đề */}
+                  <div className="flex items-start">
                     <DocumentTextIcon className="h-12 w-12 text-[rgb(36,67,128)]" />
-                    <div>
+                    <div className="ml-4">
                       <h3 className="font-semibold text-lg text-gray-900">
                         {item.serviceName}
                         <span className="ml-3 text-sm text-gray-500">#{item.requestId}</span>
                       </h3>
-                      <p className="text-sm text-gray-500 mt-1">{item.description}</p>
-                      <div className="flex items-center space-x-4 mt-2">
-                        <span className="text-sm text-gray-500">
-                          Ngày yêu cầu: {new Date(item.requestDate).toLocaleDateString('vi-VN')}
+                    </div>
+                  </div>
+                  
+                  {/* Nội dung từ description trở xuống */}
+                  <div className="mt-2 ml-2 sm:ml-16">
+                    <p className="text-sm text-gray-800">{item.description}</p>
+                    <div className="flex flex-row  sm:space-x-4 mt-2">
+                      <span className="text-sm text-gray-800">
+                        Ngày yêu cầu: {new Date(item.requestDate).toLocaleDateString('vi-VN')}
+                      </span>
+                      <div className="flex ml-4  space-x-1 sm:space-x-2">
+                        {getStatusIcon(item.status)}
+                        <span className={`inline-flex px-3 py rounded-full text-sm font-medium pb-0.5 flex items-center ${getStatusColor(item.status)}`}>
+                          {item.result}
                         </span>
-                        <div className="flex items-center space-x-2">
-                          {getStatusIcon(item.status)}
-                          <span className={`inline-flex px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(item.status)}`}>
-                            {item.result}
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Progress Timeline */}
+              {/* Progress Timeline - Đơn giản hóa */}
               <div className="p-6 bg-gray-50">
                 <div className="flex flex-nowrap overflow-x-auto pb-4">
                   {item.progress.map((step, index) => (
-                    <div key={step.step} className="flex-none w-40 first:pl-0 last:pr-0">
+                    <div key={step.step} className="flex-none w-42 first:pl-0 last:pr-0">
                       <div className="flex items-center">
-                        {/* Step Circle */}
                         <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center ${
                           step.status === 'completed' 
                             ? 'bg-green-500 border-green-500' 
@@ -301,9 +279,9 @@ const ServiceHistory = () => {
                             ? 'bg-yellow-500 border-yellow-500'
                             : 'bg-white border-gray-300'
                         }`}>
-                          <div className={step.status === 'pending' ? 'text-gray-400' : 'text-white'}>
-                            {getStepIcon(step.step)}
-                          </div>
+                          <span className={`font-bold ${step.status === 'pending' ? 'text-gray-400' : 'text-white'}`}>
+                            {step.step}
+                          </span>
                         </div>
                         
                         {/* Connecting Line */}

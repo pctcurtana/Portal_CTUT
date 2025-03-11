@@ -16,7 +16,6 @@ const newsData = [
     image: "https://picsum.photos/800/500?random=1",
     date: "20/03/2024",
     author: "Phòng Đào tạo",
-    comments: 5,
     category: "Thông báo"
   },
   {
@@ -26,7 +25,6 @@ const newsData = [
     image: "https://picsum.photos/800/500?random=2",
     date: "18/03/2024",
     author: "Phòng Đào tạo",
-    comments: 12,
     category: "Hướng dẫn"
   },
   {
@@ -36,7 +34,6 @@ const newsData = [
     image: "https://picsum.photos/800/500?random=3",
     date: "15/03/2024",
     author: "Phòng Tổ chức - Hành chính",
-    comments: 3,
     category: "Thông báo"
   }
 ];
@@ -93,10 +90,6 @@ const NewsSection = () => {
                     <div className="flex items-center">
                       <UserIcon className="h-4 w-4 mr-1" />
                       {news.author}
-                    </div>
-                    <div className="flex items-center">
-                      <ChatBubbleLeftIcon className="h-4 w-4 mr-1" />
-                      {news.comments}
                     </div>
                   </div>
                 </div>

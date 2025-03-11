@@ -163,7 +163,9 @@ const Header = () => {
 
                 {/* User Dropdown Menu */}
                 {showUserMenu && (
-                  <div className="absolute right-0 mt-2 w-60 bg-white rounded-lg shadow-lg overflow-hidden text-gray-800">
+                  <div className="absolute right-0 mt-2 w-60 bg-white rounded-lg shadow-lg overflow-hidden text-gray-800 
+                  transition-all duration-300 ease-out transform origin-top scale-95 opacity-0 
+                  animate-[fadeIn_0.3s_ease-out_forwards]">
                     <div className="p-4 border-b border-gray-100">
                       <p className="font-medium text-gray-900">Nguyễn Văn A</p>
                       <p className="text-sm text-gray-500">student@ctut.edu.vn</p>
@@ -205,7 +207,9 @@ const Header = () => {
 
               {/* Notifications Panel */}
               {showNotifications && (
-                <div className="absolute right-0 mt-2 w-80 md:w-96 bg-white rounded-lg shadow-lg overflow-hidden text-gray-800 z-50">
+                <div className="absolute right-0 mt-1 w-80 md:w-96 bg-white rounded-lg shadow-lg overflow-hidden text-gray-800 z-50
+                transition-all duration-200 ease-out transform origin-top scale-95 opacity-0 
+                animate-[fadeIn_0.2s_ease-out_forwards]">
                   <div className="p-4 bg-gray-50 border-b flex justify-between items-center">
                     <h3 className="font-semibold text-lg">Thông báo</h3>
                     <button 
@@ -260,63 +264,7 @@ const Header = () => {
                     </div>
                   )}
                 </div>
-              )}{showNotifications && (
-                <div className="absolute right-0 mt-2 w-80 md:w-96 bg-white rounded-lg shadow-lg overflow-hidden text-gray-800 z-50">
-                  <div className="p-4 bg-gray-50 border-b flex justify-between items-center">
-                    <h3 className="font-semibold text-lg">Thông báo</h3>
-                    <button 
-                      onClick={() => setShowNotifications(false)}
-                      className="text-gray-500 hover:text-gray-700"
-                    >
-                      <XMarkIcon className="h-5 w-5" />
-                    </button>
-                  </div>
-                  
-                  <div className="max-h-[400px] overflow-y-auto">
-                    {notifications.length > 0 ? (
-                      notifications.map((notification) => (
-                        <div 
-                          key={notification.id}
-                          className={`p-4 border-b hover:bg-gray-100 cursor-pointer transition-colors ${
-                            getNotificationBackground(notification.type, notification.isRead)
-                          }`}
-                          onClick={() => markAsRead(notification.id)}
-                        >
-                          <div className="flex items-start gap-3">
-                            <div className="mt-1.5">
-                              {getNotificationIcon(notification.type)}
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex justify-between items-start mb-1">
-                                <h4 className="font-medium text-sm">{notification.title}</h4>
-                                <span className="text-xs text-gray-500 ml-2 whitespace-nowrap">
-                                  {notification.time}
-                                </span>
-                              </div>
-                              <p className="text-sm text-gray-600">{notification.content}</p>
-                            </div>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="p-4 text-center text-gray-500">
-                        Không có thông báo nào
-                      </div>
-                    )}
-                  </div>
-                  
-                  {notifications.length > 0 && (
-                    <div className="p-3 bg-gray-50 border-t text-center">
-                      <button 
-                        className="text-sm text-[rgb(36,67,128)] hover:underline font-medium"
-                        onClick={() => setNotifications(notifications.map(n => ({ ...n, isRead: true })))}
-                      >
-                        Đánh dấu tất cả là đã đọc
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )} 
+              )}
             </div>}
           </div>
         </div>

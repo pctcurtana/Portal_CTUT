@@ -14,7 +14,9 @@ import {
       icon: <BookOpenIcon className="h-8 w-8"/> ,
       desc: 'Đăng ký các học phần, môn học trong kỳ học',
       category: 'academic',
-      popular: true
+      popular: true,
+      steps: 3,
+      processingTime: '1-2 ngày'
     },
     { 
       id: 2,
@@ -22,7 +24,9 @@ import {
       icon: <CurrencyDollarIcon className="h-8 w-8" />, 
       desc: 'Thanh toán học phí trực tuyến nhanh chóng, an toàn',
       category: 'financial',
-      popular: true
+      popular: true,
+      steps: 4,
+      processingTime: 'Ngay lập tức'
     },
     { 
       id: 3,
@@ -30,7 +34,9 @@ import {
       icon: <DocumentTextIcon className="h-8 w-8" />, 
       desc: 'Yêu cầu cấp bảng điểm, bảng điểm tiếng Anh',
       category: 'document',
-      popular: true
+      popular: true,
+      steps: 2,
+      processingTime: '3-5 ngày'
     },
     { 
       id: 4,
@@ -38,7 +44,9 @@ import {
       icon: <DocumentIcon className="h-8 w-8" />, 
       desc: 'Xác nhận sinh viên, xác nhận hoàn thành khóa học',
       category: 'document',
-      popular: false
+      popular: false,
+      steps: 3,
+      processingTime: '2-3 ngày'
     },
     { 
       id: 5,
@@ -46,7 +54,9 @@ import {
       icon: <HomeIcon className="h-8 w-8" />, 
       desc: 'Đăng ký phòng ở ký túc xá cho sinh viên',
       category: 'facility',
-      popular: true
+      popular: true,
+      steps: 5,
+      processingTime: '5-7 ngày'
     },
     { 
       id: 6,
@@ -54,7 +64,9 @@ import {
       icon: <ClockIcon className="h-8 w-8" />, 
       desc: 'Đăng ký thực tập tại doanh nghiệp đối tác',
       category: 'academic',
-      popular: false
+      popular: false,
+      steps: 4,
+      processingTime: '7-10 ngày'
     },
     { 
       id: 7,
@@ -62,7 +74,9 @@ import {
       icon: <DocumentTextIcon className="h-8 w-8" />, 
       desc: 'Đăng ký đề tài và giảng viên hướng dẫn đồ án',
       category: 'academic',
-      popular: false
+      popular: false,
+      steps: 3,
+      processingTime: '3-5 ngày'
     },
     { 
       id: 8,
@@ -70,7 +84,9 @@ import {
       icon: <DocumentIcon className="h-8 w-8" />, 
       desc: 'Yêu cầu cấp giấy giới thiệu thực tập, tham quan',
       category: 'document',
-      popular: false
+      popular: false,
+      steps: 2,
+      processingTime: '1-2 ngày'
     }
   ];
   
