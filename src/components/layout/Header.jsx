@@ -127,7 +127,7 @@ const Header = () => {
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
   return (
-    <header className={`${isScrolled ? 'py-3 shadow-xl' : 'shadow-md py-5'} bg-[rgb(36,67,128)] text-white sticky top-0 z-50`}>
+    <header className={`${isScrolled ? 'py-2 shadow-xl' : 'shadow-md py-3'} bg-[rgb(36,67,128)] text-white sticky top-0 z-50`}>
     <div className="container mx-auto sm:px-10 px-4">
       <div className="flex items-center justify-between">
           {/* Logo */}
@@ -197,9 +197,9 @@ const Header = () => {
                 className="md:p-2 p-1.5 hover:bg-white/10 rounded transition-colors relative"
                 onClick={() => setShowNotifications(!showNotifications)}
               >
-                <BellAlertIcon className="md:h-6 md:w-6 h-5 w-5" />
+                <div className='w-8 h-8 rounded-full bg-white/20 flex items-center justify-center'><BellAlertIcon className="h-5 w-5" /></div>
                 {unreadCount > 0 && (
-                  <span className="absolute -top-1 -right-1 h-5 w-5 bg-red-500 rounded-full text-xs flex items-center justify-center">
+                  <span className="absolute -top-0.5 -right-0.5 h-4 w-4 bg-red-500 rounded-full text-xs flex items-center justify-center">
                     {unreadCount}
                   </span>
                 )}

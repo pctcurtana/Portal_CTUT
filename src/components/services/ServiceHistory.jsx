@@ -5,11 +5,13 @@ import {
   XCircleIcon, 
   ClockIcon,
   DocumentTextIcon,
-  MagnifyingGlassIcon
+  MagnifyingGlassIcon,
+  ChevronDownIcon
 } from '@heroicons/react/24/outline';
 
 const ServiceHistory = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [openDetails, setOpenDetails] = useState(null);
   
   const historyData = [
     {
@@ -266,42 +268,53 @@ const ServiceHistory = () => {
                 </div>
               </div>
 
-              {/* Progress Timeline - Đơn giản hóa */}
-              <div className="p-6 bg-gray-50">
-                <div className="flex flex-nowrap overflow-x-auto pb-4">
-                  {item.progress.map((step, index) => (
-                    <div key={step.step} className="flex-none w-42 first:pl-0 last:pr-0">
-                      <div className="flex items-center">
-                        <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center ${
-                          step.status === 'completed' 
-                            ? 'bg-green-500 border-green-500' 
-                            : step.status === 'current'
-                            ? 'bg-yellow-500 border-yellow-500'
-                            : 'bg-white border-gray-300'
-                        }`}>
-                          <span className={`font-bold ${step.status === 'pending' ? 'text-gray-400' : 'text-white'}`}>
-                            {step.step}
-                          </span>
-                        </div>
-                        
-                        {/* Connecting Line */}
-                        {index < item.progress.length - 1 && (
-                          <div className={`h-0.5 w-full ${
-                            step.status === 'completed' ? 'bg-green-500' : 'bg-gray-300'
-                          }`}></div>
-                        )}
-                      </div>
+              {/* Progress Timeline Button and Details */}
+              <div className="p-4">
+                <button
+                  onClick={() => setOpenDetails(openDetails === item.id ? null : item.id)}
+                  className="w-full flex items-center justify-between px-4 py-2.5 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <span className="font-medium text-[rgb(36,67,128)]">Chi tiết tiến độ xử lý</span>
+                  <ChevronDownIcon 
+                    className={`h-5 w-5 text-[rgb(36,67,128)] transition-transform ${openDetails === item.id ? 'rotate-180' : ''}`}
+                  />
+                </button>
 
-                      {/* Step Info */}
-                      <div className="mt-2 pr-4">
-                        <p className="text-sm font-medium text-gray-900">{step.name}</p>
-                        <p className="text-xs text-gray-500 mt-1">{step.date}</p>
-                        <p className="text-xs text-gray-600 mt-1">{step.note}</p>
-                        <p className="text-xs text-gray-500 mt-1">{step.handler}</p>
+                {/* Vertical Timeline */}
+                {openDetails === item.id && (
+                  <div className="mt-4 pl-6">
+                    {item.progress.map((step, index) => (
+                      <div key={step.step} className="relative pb-8 last:pb-0">
+                        {index < item.progress.length - 1 && (
+                          <div className={`absolute left-4 top-8 h-full w-0.5 -translate-x-1/2 ${
+                            step.status === 'completed' ? 'bg-green-500' : 'bg-gray-200'
+                          }`} />
+                        )}
+                        <div className="flex items-start">
+                          <div className={`relative flex items-center justify-center w-8 h-8 rounded-full border-2 flex-shrink-0 ${
+                            step.status === 'completed' 
+                              ? 'bg-green-500 border-green-500' 
+                              : step.status === 'current'
+                              ? 'bg-yellow-500 border-yellow-500'
+                              : 'bg-white border-gray-300'
+                          }`}>
+                            <span className={`text-sm font-bold ${
+                              step.status === 'pending' ? 'text-gray-400' : 'text-white'
+                            }`}>
+                              {step.step}
+                            </span>
+                          </div>
+                          <div className="ml-4">
+                            <h4 className="font-medium text-gray-900">{step.name}</h4>
+                            <p className="mt-1 text-sm text-gray-600">{step.date}</p>
+                            <p className="mt-1 text-sm text-gray-500">{step.note}</p>
+                            <p className="mt-1 text-sm text-gray-500">{step.handler}</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}

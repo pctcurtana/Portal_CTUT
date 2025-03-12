@@ -25,7 +25,7 @@ const AllServices = () => {
     { id: 'facility', label: 'Cơ sở vật chất' },
     { id: 'popular', label: 'Phổ biến' }
   ];
-  const toatalServices = 8;
+  const totalServices = 8;
 
   const filterServices = () => {
     let result = [...services];
@@ -57,7 +57,6 @@ const AllServices = () => {
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
-    
   };
 
   const clearSearch = () => {
@@ -70,7 +69,7 @@ const AllServices = () => {
   };
 
   return (
-    <div className="container mx-auto px-8 pt-2 pb-8">
+    <div className="container mx-auto px-4 pt-2 pb-8">
       {/* Breadcrumb */}
       <div className="flex items-center text-sm text-gray-500 mb-6">
         <Link to="/" className="hover:text-[rgb(36,67,128)]">Trang chủ</Link>
@@ -78,93 +77,50 @@ const AllServices = () => {
         <span className="text-[rgb(36,67,128)] font-medium">Tất cả dịch vụ</span>
       </div>
 
-      <h1 className="text-3xl font-bold text-[rgb(36,67,128)] mb-8 relative">
-        Tất cả dịch vụ
-        <span className="absolute left-0 -bottom-2 w-50 h-1 bg-yellow-400"></span>
-      </h1>
-
-      <div className="flex flex-col md:flex-row gap-8">
-        {/* Sidebar filters - Desktop */}
-        {/* <div className="hidden md:block w-64 flex-shrink-0"> */}
-        <div className="hidden w-64 flex-shrink-0">
-
-          <div className="bg-white rounded-xl shadow-md p-6 sticky top-24">
-            <h2 className="font-semibold text-lg text-[rgb(36,67,128)] mb-4">Danh mục</h2>
-            <ul className="space-y-2">
-              {categories.map(category => (
-                <li key={category.id}>
-                  <button
-                    onClick={() => handleCategoryChange(category.id)}
-                    className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
-                      activeCategory === category.id
-                        ? 'bg-[rgb(36,67,128)] text-white'
-                        : 'hover:bg-gray-100 text-gray-700'
-                    }`}
-                  >
-                    {category.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            
-            {(searchTerm || activeCategory !== 'all') && (
-              <button
-                onClick={clearAllFilters}
-                className="w-full mt-6 px-3 py-2 text-[rgb(36,67,128)] border border-[rgb(36,67,128)] rounded-lg hover:bg-[rgb(36,67,128)] hover:text-white transition-colors text-sm font-medium"
-              >
-                Xóa tất cả bộ lọc
-              </button>
-            )}
-          </div>
+      <div className="text-left mb-2">
+        <div className='flex flex-col'>
+          <h2 className="text-3xl font-bold text-[rgb(36,67,128)]">
+            <div className='h-6.5 w-1.5 bg-yellow-400 mt-3 inline-block mr-2'></div>
+            Tất cả dịch vụ
+          </h2>
         </div>
+      </div>
 
-        {/* Main content */}
-        <div className="flex-1">
-          {/* Search and filter bar */}
-          <div className="bg-white rounded-xl shadow-md p-4 mb-6">
-            <div className="flex flex-col flex-row gap-4">
-              <div className="relative flex-1">
-                <input
-                  type="text"
-                  placeholder="Tìm kiếm dịch vụ..."
-                  value={searchTerm}
-                  onChange={handleSearch}
-                  className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(36,67,128)]"
-                />
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                {searchTerm && (
-                  <button
-                    type="button"
-                    onClick={clearSearch}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                  >
-                    <XMarkIcon className="h-5 w-5" />
-                  </button>
-                )}
-              </div>
-              {/* <button
-                type="button"
-                onClick={() => setShowFilters(!showFilters)}
-                className="md:hidden flex items-center justify-center px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200"
-              ></button> */}
-              <button
-                type="button"
-                onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center justify-center px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200"
-              >
-                <AdjustmentsHorizontalIcon className="h-5 w-5 mr-2" />
-                Bộ lọc
-              </button>
+      <div className="flex flex-col gap-6">
+        {/* Search and filter bar */}
+        <div className="bg-white rounded-xl shadow-md p-4">
+          <div className="flex gap-4">
+            <div className="relative flex-1">
+              <input
+                type="text"
+                placeholder="Tìm kiếm dịch vụ..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(36,67,128)]"
+              />
+              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              {searchTerm && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <XMarkIcon className="h-5 w-5" />
+                </button>
+              )}
             </div>
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center justify-center px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200"
+            >
+              <AdjustmentsHorizontalIcon className="h-5 w-5 mr-2" />
+              Bộ lọc
+            </button>
           </div>
 
-          {/* Mobile filters */}
+          {/* Filter categories */}
           {showFilters && (
-            // <div className="md:hidden bg-white rounded-xl shadow-md p-4 mb-6">
-
-            <div className="bg-white rounded-xl shadow-md p-4 mb-6">
-              <h2 className="font-semibold text-lg text-[rgb(36,67,128)] mb-4">Danh mục</h2>
-              <div className="flex flex-wrap gap-4">
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <div className="flex flex-wrap gap-2">
                 {categories.map(category => (
                   <button
                     key={category.id}
@@ -190,33 +146,36 @@ const AllServices = () => {
               )}
             </div>
           )}
-          {/* Thông báo khi có tìm kiếm */}
-          {searchTerm.trim() && (
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-              <p className="text-blue-700">
-                Kết quả tìm kiếm cho <span className="font-medium">"{searchTerm}"</span>: 
-                {filteredServices.length > 0 
-                  ? ` Tìm thấy ${filteredServices.length} dịch vụ` 
-                  : ' Không tìm thấy dịch vụ nào'}
-              </p>
-            </div>
-          )}
-          {/* Results info */}
-          <div className="flex justify-between items-center mb-6">
-            <p className="text-gray-600">
-              Hiển thị <span className="font-medium">{filteredServices.length}</span> trong tổng số 
-              <span className="font-medium"> {toatalServices}</span> dịch vụ
+        </div>
+
+        {/* Search results info */}
+        {searchTerm && (
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+            <p className="text-blue-700">
+              Kết quả tìm kiếm cho <span className="font-medium">"{searchTerm}"</span>: 
+              {filteredServices.length > 0 
+                ? ` Tìm thấy ${filteredServices.length} dịch vụ` 
+                : ' Không tìm thấy dịch vụ nào'}
             </p>
           </div>
-          {/* Services grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredServices.map((service ) => (
-                <ServiceCard 
-                  key={service.id} 
-                  service={service}
-                />
-              ))}
-            </div>
+        )}
+
+        {/* Results count */}
+        <div className="flex justify-between items-center">
+          <p className="text-gray-600">
+            Hiển thị <span className="font-medium">{filteredServices.length}</span> trong tổng số 
+            <span className="font-medium"> {totalServices}</span> dịch vụ
+          </p>
+        </div>
+
+        {/* Services grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredServices.map((service) => (
+            <ServiceCard 
+              key={service.id} 
+              service={service}
+            />
+          ))}
         </div>
       </div>
     </div>

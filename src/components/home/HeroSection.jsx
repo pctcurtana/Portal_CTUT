@@ -22,7 +22,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-[600px] pb-10 text-white">
+    <section className="relative min-h-[600px] pb-4 text-white">
       {/* Background */}
       <div className="absolute inset-0 bg-[#244380]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#244380] via-[#0f4583] to-blue-500 opacity-60"></div>
@@ -32,8 +32,8 @@ const HeroSection = () => {
       <div className="container relative z-10 mx-auto px-4 pt-4 pb-20">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl select-none cursor-pointer md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Cổng Dịch vụ Công
-            <span className="block text-yellow-400">Trực tuyến</span>
+            Cổng Dịch Vụ Công
+            <span className="block text-yellow-400">Trực Tuyến</span>
           </h1>
           
           <p className="text-xl text-white mb-12 leading-relaxed">

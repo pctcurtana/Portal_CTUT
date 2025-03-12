@@ -10,9 +10,9 @@ import { footerLinks } from '../../constants/data';
 
 const Footer = () => {
   return (
-    <footer className="bg-[rgb(25,46,88)] text-white pt-10 px-2">
+    <footer className="bg-[rgb(25,46,88)] text-white pt-6 px-2">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-4">
           {/* Brand Section */}
           <div>
             <div className="flex items-center space-x-3">          
@@ -50,7 +50,7 @@ const Footer = () => {
                 { icon: <EnvelopeIcon className="h-5 w-5" />, text: "contact@ctuet.edu.vn" }
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <div className="bg-[rgba(255,255,255,0.1)] p-2 rounded-full mt-0.5">
+                  <div className="bg-[rgba(255,255,255,0.1)] p-2 rounded-full -mt-1">
                     {item.icon}
                   </div>
                   <span className="text-gray-300">{item.text}</span>

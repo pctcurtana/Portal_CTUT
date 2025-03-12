@@ -1,16 +1,16 @@
 import React from 'react';
-import { ArrowRightIcon, ClipboardDocumentListIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ClipboardDocumentListIcon, ClockIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
 export const ServiceCard = ({ service }) => {
-  const { id, title, icon, desc, popular, steps, processingTime } = service;
+  const { id, title, desc, popular, steps, processingTime } = service;
     
   return (
     <Link to={`/service/${id}`}>
-      <div className="bg-[rgb(36,67,128)]/10 rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border-t-10 border-[rgb(36,67,128)] group transform hover:-translate-y-1 relative">
+      <div className="bg-[rgb(36,67,128)]/10 rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border-t-5 border-[rgb(36,67,128)] group transform hover:-translate-y-1 relative">
         <div className='flex'>
           <div className="text-[rgb(36,67,128)] bg-blue-50 p-3 rounded-full inline-flex items-center justify-center h-12 w-12 flex-shrink-0 group-hover:bg-[rgb(36,67,128)] group-hover:text-white transition-colors">
-            {icon}
+            <DocumentTextIcon className="h-6 w-6" />
           </div>
           <div className='m-3 flex-grow'>
             <h3 className="font-semibold text-lg text-[rgb(36,67,128)]">{title}</h3>

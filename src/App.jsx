@@ -11,6 +11,7 @@ import ServiceUse from './components/services/ServiceUse';
 import AllServices from './components/services/AllServices';
 import ServiceHistory from './components/services/ServiceHistory';
 import NewsSection from './components/home/NewsSection';
+import AllFAQ from './components/faq/AllFAQ';
 
 function App() {
   return (
@@ -50,10 +51,13 @@ function App() {
           </MainLayout>
         } />
         
+        <Route path="/faq" element={
+          <MainLayout>
+            <AllFAQ />
+          </MainLayout>
+        } />
         
-        {/* Trang đăng nhập */}
         <Route path="/login" element={<Login/>} />
-        {/* Trang đăng ký */}
         <Route path="/register" element={<Register/>} />
       </Routes>
     </Router>
