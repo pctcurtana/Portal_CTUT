@@ -112,8 +112,8 @@ const AllServices = () => {
               onClick={() => setShowFilters(!showFilters)}
               className="flex items-center justify-center px-4 py-2 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200"
             >
-              <AdjustmentsHorizontalIcon className="h-5 w-5 mr-2" />
-              Bộ lọc
+              <AdjustmentsHorizontalIcon className="h-5 w-5 mr-2"/>
+              <span className='hidden sm:block'>Bộ lọc</span>
             </button>
           </div>
 
