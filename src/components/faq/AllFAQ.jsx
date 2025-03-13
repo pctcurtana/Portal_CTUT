@@ -59,7 +59,7 @@ const AllFAQ = () => {
   );
 
   return (
-    <div className="pt-2 pb-8 bg-gray-50 md:px-4">
+    <div className="pt-2 pb-8 bg-gray-50 px-4">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <div className="flex items-center text-sm text-gray-500 mb-6">

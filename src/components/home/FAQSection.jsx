@@ -44,7 +44,7 @@ const FAQSection = () => {
             <Link 
               to={`/faq/${faq.id}`}
               key={faq.id}
-              className="bg-white rounded-lg p-4 shadow-sm hover:shadow transition-shadow group"
+              className="bg-[rgb(36,67,128)]/10 rounded-lg p-4 shadow-sm hover:shadow transition-shadow group"
             >
               <div className="flex items-center justify-between mb-2">
                 <QuestionMarkCircleIcon className="h-5 w-5 text-[rgb(36,67,128)]" />

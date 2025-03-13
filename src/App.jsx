@@ -10,7 +10,7 @@ import ServiceDetail from './components/services/ServiceDetail';
 import ServiceUse from './components/services/ServiceUse';
 import AllServices from './components/services/AllServices';
 import ServiceHistory from './components/services/ServiceHistory';
-import NewsSection from './components/home/NewsSection';
+import NewsSection from './components/home/NotifySection';
 import AllFAQ from './components/faq/AllFAQ';
 
 function App() {

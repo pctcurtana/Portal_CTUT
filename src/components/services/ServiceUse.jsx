@@ -174,9 +174,9 @@ const ServiceUse = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl">
+    <div className="container mx-auto py-8 max-w-6xl">
       {/* Breadcrumb */}
-      <div className="flex items-center text-sm text-gray-500 mb-6">
+      <div className="flex items-center px-4 text-sm text-gray-500 mb-6">
         <Link to="/" className="hover:text-[rgb(36,67,128)]">Trang chủ</Link>
         <span className="mx-2">/</span>
         <Link to="/#services" className="hover:text-[rgb(36,67,128)]">Dịch vụ</Link>
@@ -187,13 +187,13 @@ const ServiceUse = () => {
       </div>
 
       {/* Back button */}
-      <Link to={`/service/${id}`} className="inline-flex items-center text-[rgb(36,67,128)] hover:underline mb-6">
+      <Link to={`/service/${id}`} className="inline-flex px-4 items-center text-[rgb(36,67,128)] hover:underline mb-6">
         <ArrowLeftIcon className="h-4 w-4 mr-1" />
         Quay lại thông tin dịch vụ
       </Link>
 
       {/* Page header */}
-      <div className="bg-[rgb(36,67,128)] rounded-t-xl p-6 text-white">
+      <div className="bg-[rgb(36,67,128)] rounded-t-xl p-6 text-white  " >
         <h1 className="text-2xl font-bold mb-2">{service.title}</h1>
         <p className="text-white/80">{service.desc}</p>
       </div>
@@ -573,42 +573,6 @@ const ServiceUse = () => {
             </Button>
           </div>
         </form>
-      </div>
-
-      {/* Thông tin hỗ trợ */}
-      <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
-        <h2 className="text-xl font-bold text-[rgb(36,67,128)] mb-4">Thông tin hỗ trợ</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h3 className="font-medium text-[rgb(36,67,128)] mb-2">Liên hệ hỗ trợ</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-center">
-                <span className="font-medium mr-2">Email:</span> contact@ctuet.edu.vn
-              </li>
-              <li className="flex items-center">
-                <span className="font-medium mr-2">Hotline:</span> (+84) 292-3890-698
-              </li>
-              <li className="flex items-center">
-                <span className="font-medium mr-2">Thời gian:</span> 8:00 - 17:00 (Thứ 2 - Thứ 6)
-              </li>
-            </ul>
-          </div>
-          
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h3 className="font-medium text-[rgb(36,67,128)] mb-2">Câu hỏi thường gặp</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <a href="#" className="hover:text-[rgb(36,67,128)] hover:underline">Thời gian xử lý yêu cầu là bao lâu?</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[rgb(36,67,128)] hover:underline">Làm thế nào để theo dõi trạng thái yêu cầu?</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[rgb(36,67,128)] hover:underline">Tôi cần chuẩn bị những giấy tờ gì?</a>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
 
       {/* Success Modal */}
