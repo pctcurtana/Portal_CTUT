@@ -105,7 +105,7 @@ const NewsSection = () => {
         </div>
 
         {/* View All Button */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <Link
             to="/notifications"
             className="inline-flex items-center px-5 py-2 bg-[rgb(36,67,128)] text-white font-medium rounded-lg hover:bg-[rgb(26,57,118)] transition-colors group"
@@ -113,7 +113,7 @@ const NewsSection = () => {
             Xem tất cả thông báo
             <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

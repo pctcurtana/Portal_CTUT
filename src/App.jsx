@@ -24,7 +24,7 @@ function App() {
             <MainLayout>
               <HeroSection />
               <div className="container mx-auto px-4 py-6">
-                <Test />
+                {/* <Test /> */}
                 <ServicesSection />
                 <NewsSection />
                 <FAQSection />

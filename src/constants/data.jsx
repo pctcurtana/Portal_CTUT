@@ -96,6 +96,5 @@ import {
       { id: 1, title: 'Trang chủ Trường', href: '#' },
       { id: 2, title: 'Cổng thông tin sinh viên', href: '#' },
       { id: 3, title: 'Facebook', href: '#' },
-      { id: 4, title: 'E-learning', href: '#' },
-      { id: 5, title: 'Hệ thống email', href: '#' }
+      { id: 4, title: 'E-learning', href: '#' }
     ];

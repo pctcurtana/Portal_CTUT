@@ -14,7 +14,7 @@ const ServiceDetail = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 md:px-8 pt-2 pb-8">
+    <div className="container mx-auto px-4 pt-2 pb-8">
       {/* Breadcrumb */}
       <div className="flex items-center text-sm text-gray-500 mb-6">
         <Link to="/" className="hover:text-[rgb(36,67,128)]">Trang chủ</Link>
@@ -32,7 +32,7 @@ const ServiceDetail = () => {
             </div>
             <h1 className="text-3xl font-bold">{service.title}</h1>
             {service.popular && (
-              <span className="ml-4 bg-yellow-500 text-xs text-white px-3 py-1 rounded-full">
+              <span className="ml-4 bg-yellow-500 text-xs text-white px-3 w-25 md:w-auto py-1 rounded-full mt-1">
                 Phổ biến
               </span>
             )}

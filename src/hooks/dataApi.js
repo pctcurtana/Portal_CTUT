@@ -6,7 +6,7 @@ const useGlobalData = () => {
   return useQuery({
     queryKey: ["globalData"],
     queryFn: dataApi,
-    staleTime: Infinity, // Không bao giờ coi dữ liệu là cũ
+    // staleTime: Infinity,
   });
 };
 

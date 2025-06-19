@@ -4,8 +4,8 @@ import dataApi from "./api/dataApi";
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            staleTime: 1000 * 60 * 5, // 5 phút
-            cacheTime: 1000 * 60 * 10, // 10 phút
+            staleTime: Infinity, // 5 phút
+            cacheTime: Infinity, // 10 phút
             refetchOnWindowFocus: false,
             retry: 1,
         },

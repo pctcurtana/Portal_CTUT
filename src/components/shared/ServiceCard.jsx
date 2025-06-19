@@ -16,7 +16,7 @@ export const ServiceCard = ({ service }) => {
             <h3 className="font-semibold text-lg text-[rgb(36,67,128)]">{title}</h3>
           </div>
         </div>
-        <p className="text-gray-900 my-4">{desc}</p>
+        <p className="text-gray-900 my-4 min-h-12">{desc}</p>
         
         {/* Thông tin về dịch vụ */}
         <div className="flex flex-col space-y-2 mt-2 mb-1">

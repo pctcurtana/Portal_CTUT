@@ -35,7 +35,7 @@ const ServicesSection = () => {
 
         <div className="text-center mt-12">
           <Link to="/services"           
-          className="inline-flex items-center px-5 py-2 bg-[rgb(36,67,128)] text-white font-medium rounded-lg hover:bg-[rgb(26,57,118)] transition-colors"
+          className="inline-flex items-center px-5 py-2 bg-[rgb(36,67,128)] text-white font-medium rounded-lg hover:bg-[rgb(26,57,118)] transition-colors group"
           >
               Xem tất cả dịch vụ
               <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />

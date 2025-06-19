@@ -42,7 +42,7 @@ const FAQSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {faqs.map((faq) => (
             <Link 
-              to={`/faq/${faq.id}`}
+              to='/faq'
               key={faq.id}
               className="bg-[rgb(36,67,128)]/10 rounded-lg p-4 shadow-sm hover:shadow transition-shadow group"
             >

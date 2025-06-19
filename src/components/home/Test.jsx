@@ -3,8 +3,11 @@ import useGlobalData from '../../hooks/dataApi';
 
 const Test = () => {
   const { data, isLoading, error } = useGlobalData();
-  const hktt = data?.data?.json_hktt;
+  let dataTest = null;
 
+  if (data){
+    dataTest = Object.values(data)
+  }
   if (isLoading) return (
     <div className="flex justify-center items-center min-h-[300px]">
       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[rgb(36,67,128)]"></div>
@@ -37,13 +40,17 @@ const Test = () => {
   // Phân tích dữ liệu và tạo cấu trúc hiển thị
   return (
     <div>
-      <h2>Test load data api</h2>
-      <pre className="bg-gray-100 p-4 rounded overflow-auto max-h-96">
-        {JSON.stringify(hktt, null, 2)}
-      </pre>
-      {console.log(data)}
-    </div>
-  );
+    <h2>Test load data api</h2>
+    <pre className="bg-gray-100 p-4 rounded overflow-auto max-h-96">
+      {dataTest?.map((child, index) => (
+        <div key={index}>
+          <strong>{child.mssv}</strong>
+        </div>
+      ))}
+    </pre>
+    {console.log(dataTest)}
+  </div>
+);
 };
 
 export default Test;
