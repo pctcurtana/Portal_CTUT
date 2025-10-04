@@ -157,7 +157,7 @@ const Header = () => {
                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                     <UserIcon className="h-5 w-5" />
                   </div>
-                  <span className="hidden md:block">Thật Lộc Vinh</span>
+                  <span className="hidden md:block">Phạm Thật</span>
                   <ChevronDownIcon className="h-4 w-4" />
                 </button>
 
